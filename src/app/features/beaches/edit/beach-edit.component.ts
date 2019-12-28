@@ -72,7 +72,7 @@ export class BeachEditComponent implements OnInit {
 
     this.beachService.editBeach(beach)
       .subscribe(result => {
-        this.router.navigate(['../beaches/list']);
+        this.router.navigate([`../beaches/details/${this.beach.id}`]);
       }, error => {
         console.error(error);
       });
