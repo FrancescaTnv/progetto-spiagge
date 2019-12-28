@@ -33,8 +33,6 @@ export class BeachDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getBeachDetail(this.route.snapshot.params.id);
-
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -48,6 +46,9 @@ export class BeachDetailComponent implements OnInit {
       })
       
     });
+    this.getBeachDetail(this.route.snapshot.params.id);
+
+
   }
 
   setCenter() {
