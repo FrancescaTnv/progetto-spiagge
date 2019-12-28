@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BeachService} from '../../../shared/services/beaches.service';
-import {Beach} from '../../../shared/models/Beach';
+import {Beach, BeachType} from '../../../shared/models/Beach';
 import {CurrentWeather} from '../../../shared/models/Meteo';
 import {Traffic} from '../../../shared/models/Traffic';
 import {WeatherService} from '../../../shared/services/weather.service';
 import {TrafficService} from '../../../shared/services/traffic.service';
+import { APP_BASE_HREF } from '@angular/common';
 
 declare var ol: any;
 
@@ -16,10 +17,11 @@ declare var ol: any;
 })
 export class BeachDetailComponent implements OnInit {
   
-  map: any;
   beach: Beach;
+  beachtype = BeachType;
   latitude = 40;
   longitude = 9;
+  map: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -137,5 +139,10 @@ export class BeachDetailComponent implements OnInit {
   getWeatherIconPath = (icon: string): string => `https://www.weatherbit.io/static/img/icons/${icon}.png`;
   // getTrafficClass = (value: number) => value >= 80 ? 'bg-danger' : (value > 70 && value < 80 ? 'bg-warning' : 'bg-success');
   getInfoClass = (value: boolean) => value ? 'fa-check-circle text-success' : 'fa-times-circle text-danger';
-  
+  getEnabledClass = (value: boolean) => value ? 'text-success' : '';
+  getBeachType = (value:string) => this.beachtype[value];
 }
+
+
+
+  
