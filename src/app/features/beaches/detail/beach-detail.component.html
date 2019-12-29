@@ -28,10 +28,8 @@
           
           <div class="col-md-12 my-3">
             <h3>Altre info e servizi:</h3>
-            <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.park)}}"></i>Parcheggio</span>
-            <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.food_service)}}"></i>Ristorazione</span>
-            <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.lifeguard)}}"></i>Bagnino</span>
-            <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.summer_crowding)}}"></i>Affollamento estivo</span>
+          
+           <!-- <span class="mr-2"><i class="mr-1 fas {{getInfoClass(beach.summer_crowding)}}"></i>Affollamento estivo</span> -->
             <!--span class="mr-2"><i class="mr-1 fas fa-dog {{getEnabledClass(beach.dogs_allowed)}}" title="{{beach.dogs_allowed ? 'Cani ammessi' : 'Cani non ammess'}}"></i>{{beach.dogs_allowed ? 'Cani ammessi' : 'Cani non ammessi'}}</!--span-->
             <span class="mr-2">
               <span class="mr-1 fa-stack fa-1x">
@@ -51,10 +49,35 @@
                 <i class="fas fa-ban fa-stack-2x text-danger" *ngIf="!beach.wifi" title="{{beach.wifi ? 'Wi-Fi disponibile' : 'Wi-Fi non disponibile'}}"></i>
               </span>
             </span>
-            </div>
+            <span class="mr-2">
+              <span class="mr-1 fa-stack fa-1x">
+                <i class="fas fa-parking fa-stack-2x {{getEnabledClass(beach.park)}}" title="{{beach.park ? 'Parcheggio custodito presente' : 'Assenza parcheggio custodito'}}"></i>
+                <i class="fas fa-ban fa-stack-2x text-danger" *ngIf="!beach.park" title="{{beach.park ? 'Parcheggio custodito presente' : 'Assenza parcheggio custodito'}}"></i>
+              </span> 
+            </span>
+            <span class="mr-2">
+              <span class="mr-1 fa-stack fa-1x">
+                <i class="fas fa-utensils fa-stack-1x {{getEnabledClass(beach.food_service)}}" title="{{beach.food_service? 'Presenza di ristoranti' : 'Assenza di ristoranti'}}"></i>
+                <i class="fas fa-ban fa-stack-2x text-danger" *ngIf="!beach.food_service" title="{{beach.food_service ? 'Presenza di ristoranti' : 'Assenza di ristoranti'}}"></i>
+              </span> 
+              </span>
+              <span class="mr-2">
+                <span class="mr-1 fa-stack fa-1x">
+                  <i class="fas fa-life-ring  fa-stack-2x {{getEnabledClass(beach.lifeguard)}}" title="{{beach.lifeguard? 'Servizio di salvataggio in mare' : 'Assenza di bagnino'}}"></i>
+                  <i class="fas fa-ban fa-stack-2x text-danger" *ngIf="!beach.lifeguard" title="{{beach.lifeguard ? 'Servizio di salvataggio in mare' : 'Assenza di bagnino'}}"></i>
+                </span> 
+                </span>
+                <span class="mr-2">
+                <span class="mr-1 fa-stack fa-1x">
+                  <i class="fas fa-user-circle  fa-stack-2x {{getEnabledClass(beach.summer_crowding)}}" title="{{beach.summer_crowding? 'Spaggia affollata' : 'Spaggia affollata'}}"></i>
+                  <i class="fas fa-ban fa-stack-2x text-danger" *ngIf="!beach.summer_crowding" title="{{beach.summer_crowding ? 'Spaggia affollata' : 'Spaggia non affollata'}}"></i>
+                </span> 
+                </span>
+            
+      </div>
 
-       </div>
-
+    </div>         
+      
         <input id="goMap" class="btn btn-primary" type="button" (click)="setCenter()" value="Riposiziona">
         
         <div class="row">
